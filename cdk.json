@@ -1,0 +1,65 @@
+{
+  "app": "python app.py",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "requirements*.txt",
+      "source.bat",
+      "**/__init__.py",
+      "python/__pycache__",
+      "tests"
+    ]
+  },
+  "context": {
+    "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-rds:lowercaseDbIdentifier": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+    "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": true,
+    "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
+    "@aws-cdk/core:target-partitions": [
+      "aws",
+      "aws-cn"
+    ],
+    "contextGroups": {
+      "default": "dev",
+      "dev": {
+        "AWSAccountID" : "786256866628",
+        "AWSProfileName": "gunesh",
+        "AWSProfileRegion" : "us-east-1",
+    
+        "App": "config-1-context",
+        "Environment": "dev",
+        "Version": "0.0.0",
+        "Build": "1",
+    
+        "Parameters":
+        {
+          "LambdaInsightsLayer": "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:14",
+          "SomeExternalApiUrl": "https://api-dev.something-external.com"
+        }
+      },
+      "prod": {
+        "AWSAccountID" : "786256866628",
+        "AWSProfileName": "akshay",
+        "AWSProfileRegion" : "us-east-1",
+    
+        "App": "config-1-context",
+        "Environment": "prod",
+        "Version": "0.0.0",
+        "Build": "0",
+    
+        "Parameters":
+        {
+          "LambdaInsightsLayer": "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension:14",
+          "SomeExternalApiUrl": "https://api.something-external.com"
+        }
+      }
+    }
+  }
+
+}
